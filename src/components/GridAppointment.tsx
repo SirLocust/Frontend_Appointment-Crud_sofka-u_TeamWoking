@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { getAppointment } from '../helpers/getAppointments'
 import CardAppointment from './CardAppointment'
+import { Appointment } from './interfaces/Appointment'
 
 const GridAppointment = () => {
-  const [appointments, setappointments] = React.useState<string[]>([])
+  const [appointments, setappointments] = React.useState<Appointment[]>([])
 
   useEffect(() => {
     getAppointment().then((appointmentsData) =>

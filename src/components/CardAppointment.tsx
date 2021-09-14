@@ -1,3 +1,5 @@
+import { Appointment } from './interfaces/Appointment'
+
 const CardAppointment = (props: AppProps) => {
   return (
     <div>
@@ -7,7 +9,7 @@ const CardAppointment = (props: AppProps) => {
 }
 
 type AppProps = {
-  appointment: string
+  appointment: Appointment
 }
 
 export default CardAppointment
