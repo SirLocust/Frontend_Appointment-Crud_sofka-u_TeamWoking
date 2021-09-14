@@ -1,5 +1,12 @@
 import React from 'react'
 
 export default function CreateCardAppointment() {
-  return <div></div>
+  const [appointment, setappointment] = React.useState<string>('')
+
+  const handleAdd = () => {
+    setappointment(appointment)
+  }
+  handleAdd()
+
+  return <form action=""></form>
 }

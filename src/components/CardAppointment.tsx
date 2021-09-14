@@ -1,7 +1,13 @@
-import React from 'react'
+const CardAppointment = (props: AppProps) => {
+  return (
+    <div>
+      <p>{props.appointment}</p>
+    </div>
+  )
+}
 
-const CardAppointment = () => {
-  return <div></div>
+type AppProps = {
+  appointment: string
 }
 
 export default CardAppointment
