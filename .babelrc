@@ -15,6 +15,9 @@
       {
         "regenerator": true
       }
+    ],
+    [
+      "react-refresh/babel"
     ]
   ]
 }

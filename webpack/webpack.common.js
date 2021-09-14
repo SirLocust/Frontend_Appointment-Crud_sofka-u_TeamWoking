@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -13,7 +14,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: require.resolve('babel-loader'),
           },
         ],
       },
@@ -36,6 +37,9 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
     }),
