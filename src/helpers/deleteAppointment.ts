@@ -1,11 +1,11 @@
-import { Appointment } from './../components/interfaces/Appointment'
-
-export const deleteAppointment = async (
-  id: number
-): Promise<Appointment | string> => {
-  const url = `http://localhost:8081/api/${id}}`
+export const deleteAppointment = async (id: number): Promise<boolean> => {
+  console.log(id)
+  const url = `http://localhost:8081/api/appointment/${id}`
   const response = await fetch(url, {
     method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
   })
-  return response.json() as unknown as Appointment | string
+  return response.ok as unknown as Promise<boolean>
 }

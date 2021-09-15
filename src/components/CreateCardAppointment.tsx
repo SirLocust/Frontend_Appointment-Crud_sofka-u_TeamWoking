@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { postAppointment } from '../helpers/postAppointment'
 import { Appointment } from './interfaces/Appointment'
 
-export default function CreateCardAppointment() {
+export default function CreateCardAppointment(props: AppProps) {
   const [appointment, setAppointment] = React.useState<Appointment>({
     date: '',
     nameDoctor: '',
@@ -21,7 +21,6 @@ export default function CreateCardAppointment() {
   const { register, handleSubmit } = useForm<Appointment>()
 
   const onSubmit = (data: Appointment) => {
-    console.log(data)
     const newAppointment: Appointment = {
       date: '',
       nameDoctor: data.nameDoctor,
@@ -31,7 +30,9 @@ export default function CreateCardAppointment() {
     }
     setAppointment(newAppointment)
     postAppointment(newAppointment)
-      .then()
+      .then(() => {
+        props.handledRefresh()
+      })
       .catch((e) => {
         console.log(e)
       })
@@ -72,4 +73,8 @@ export default function CreateCardAppointment() {
       </form>
     </div>
   )
+}
+
+type AppProps = {
+  handledRefresh: () => void
 }
