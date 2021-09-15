@@ -7,7 +7,6 @@ const CardAppointment = (props: AppProps) => {
   const [isEditing, setIsEditing] = React.useState<boolean>(false)
 
   const handledToggleEditing = (): void => {
-    console.log('se cambio')
     setIsEditing(!isEditing)
   }
   return (
@@ -38,9 +37,7 @@ const CardAppointment = (props: AppProps) => {
                         .then(() => {
                           props.handledRefresh()
                         })
-                        .catch(() => {
-                          console.log('no se cumple')
-                        })
+                        .catch()
                     }
                   }}
                 >

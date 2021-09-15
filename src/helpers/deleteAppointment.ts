@@ -1,5 +1,4 @@
 export const deleteAppointment = async (id: number): Promise<boolean> => {
-  console.log(id)
   const url = `http://localhost:8081/api/appointment/${id}`
   const response = await fetch(url, {
     method: 'DELETE',

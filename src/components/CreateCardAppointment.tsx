@@ -28,17 +28,14 @@ export default function CreateCardAppointment(props: AppProps) {
       motiveConsult: data.motiveConsult,
       building: data.building,
     }
+    appointment
     setAppointment(newAppointment)
     postAppointment(newAppointment)
       .then(() => {
         props.handledRefresh()
       })
-      .catch((e) => {
-        console.log(e)
-      })
+      .catch()
   }
-
-  console.log(appointment)
 
   return (
     <div className="container">

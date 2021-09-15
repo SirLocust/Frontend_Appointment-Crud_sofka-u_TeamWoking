@@ -14,13 +14,9 @@ export const App = () => {
   const getData = () => {
     getAppointment()
       .then((appointmentsData) => {
-        // console.log('hola')
         setappointments(appointmentsData)
-        console.log('spr')
       })
-      .catch((e) => {
-        console.log(e)
-      })
+      .catch()
   }
 
   const handledRefresh = () => {

@@ -4,7 +4,6 @@ import { Appointment } from './interfaces/Appointment'
 const GridAppointment = (props: AppProps) => {
   return (
     <div>
-      {console.log('se renderiso')}
       <div className="card-grid">
         {props.appointments.map((appointmentData, index) => {
           return (
