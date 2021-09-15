@@ -3,6 +3,6 @@ export interface Appointment {
   date: string
   nameDoctor: string
   namePatient: string
-  motiveConsulta: string
+  motiveConsult: string
   building: string
 }

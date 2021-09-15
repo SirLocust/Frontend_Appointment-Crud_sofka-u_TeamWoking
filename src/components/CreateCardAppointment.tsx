@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { postAppointment } from '../helpers/postAppointment'
 import { Appointment } from './interfaces/Appointment'
 
 export default function CreateCardAppointment() {
@@ -9,16 +10,31 @@ export default function CreateCardAppointment() {
     date: '',
     nameDoctor: '',
     namePatient: '',
-    motiveConsulta: '',
+    motiveConsult: '',
     building: '',
   })
+
+  // useEffect(() => {
+  //   postAppointment(appointment)
+  // }, [appointment])
 
   const { register, handleSubmit } = useForm<Appointment>()
 
   const onSubmit = (data: Appointment) => {
     console.log(data)
-
-    setAppointment(data)
+    const newAppointment: Appointment = {
+      date: '',
+      nameDoctor: data.nameDoctor,
+      namePatient: data.namePatient,
+      motiveConsult: data.motiveConsult,
+      building: data.building,
+    }
+    setAppointment(newAppointment)
+    postAppointment(newAppointment)
+      .then()
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   console.log(appointment)
@@ -41,7 +57,7 @@ export default function CreateCardAppointment() {
           <div className="col">
             <div className="form-group">
               <label>Motivo</label>
-              <input {...register('motiveConsulta')} className="form-control" />
+              <input {...register('motiveConsult')} className="form-control" />
             </div>
 
             <div className="form-group">

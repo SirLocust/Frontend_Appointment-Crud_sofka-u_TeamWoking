@@ -7,16 +7,22 @@ const GridAppointment = () => {
   const [appointments, setappointments] = React.useState<Appointment[]>([])
 
   useEffect(() => {
-    getAppointment().then((appointmentsData) =>
-      setappointments(appointmentsData)
-    )
-  }, [appointments])
+    getAppointment()
+      .then((appointmentsData) => {
+        // console.log('hola')
+        setappointments(appointmentsData)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  })
 
   return (
     <div>
+      {console.log('se renderiso')}
       <div className="card-grid">
-        {appointments.map((appointmentData) => {
-          ;<CardAppointment appointment={appointmentData} />
+        {appointments.map((appointmentData, index) => {
+          return <CardAppointment key={index} appointment={appointmentData} />
         })}
       </div>
     </div>

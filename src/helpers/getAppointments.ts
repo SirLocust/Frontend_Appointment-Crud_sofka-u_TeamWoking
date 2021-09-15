@@ -1,8 +1,12 @@
 import { Appointment } from '../components/interfaces/Appointment'
 
 export const getAppointment = async (): Promise<Appointment[]> => {
-  const url = 'localhost:3030'
+  console.log('sqqq')
+  const url = 'http://localhost:8081/api/appointment'
 
   const resp = await fetch(url)
-  return resp.json as unknown as Promise<Appointment[]>
+  const data = await resp.json()
+  console.log(data)
+
+  return data as Promise<Appointment[]>
 }
