@@ -18,28 +18,36 @@ const CardAppointment = (props: AppProps) => {
             <h5 className="card-title">
               Nombre: {props.appointment.namePatient}
             </h5>
-            <button
-              onClick={() => {
-                if (props.appointment.id) {
-                  deleteAppointment(props.appointment.id)
-                    .then(() => {
-                      props.handledRefresh()
-                    })
-                    .catch(() => {
-                      console.log('no se cumple')
-                    })
-                }
-              }}
-            >
-              x
-            </button>
-            <button
-              onClick={() => {
-                setIsEditing(true)
-              }}
-            >
-              Edit
-            </button>
+            <div className="row float-right ">
+              <div className="mr-2">
+                <button
+                  className=" btn  btn-primary  float-right "
+                  onClick={() => {
+                    setIsEditing(true)
+                  }}
+                >
+                  Editar
+                </button>
+              </div>
+              <div className="">
+                <button
+                  className="btn btn-danger mr-3 float-right"
+                  onClick={() => {
+                    if (props.appointment.id) {
+                      deleteAppointment(props.appointment.id)
+                        .then(() => {
+                          props.handledRefresh()
+                        })
+                        .catch(() => {
+                          console.log('no se cumple')
+                        })
+                    }
+                  }}
+                >
+                  x
+                </button>
+              </div>
+            </div>
           </div>
 
           <h6 className="card-subtitle mb-2 text-muted">
